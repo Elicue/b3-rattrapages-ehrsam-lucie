@@ -1,27 +1,48 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ""
-labels: ""
-assignees: ""
----
+**Bug Report**
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Description**
 
-**To Reproduce**
-Steps to reproduce the behavior:
+A clear and concise description of the bug.
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Steps to Reproduce**
 
-**Expected behavior**
+1. Step 1
+2. Step 2
+3. Step 3
+
+**Expected Behavior**
+
 A clear and concise description of what you expected to happen.
 
+**Actual Behavior**
+
+A clear and concise description of what actually happened.
+
 **Screenshots**
+
 If applicable, add screenshots to help explain your problem.
 
-**Additional context**
-Add any other context about the problem here.
+**Environment**
+
+- Package version:
+- Operating system:
+- Browser (if applicable):
+
+**Additional Information**
+
+Add any other relevant information about the problem here.
+
+**Possible Solution**
+
+If you have any ideas on how to solve the bug, please let us know.
+
+**Related Issues**
+
+Any related issues or links to other bug reports or feature requests.
+
+**Checklist**
+
+- [ ] I have searched the issue tracker for similar issues and didn't find any.
+- [ ] I have reproduced the issue using the latest version of the package.
+- [ ] I have included all the necessary information for the bug report.
+- [ ] I have tagged the issue with the appropriate labels.
