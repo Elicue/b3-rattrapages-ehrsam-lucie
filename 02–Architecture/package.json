@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "release": "release-it"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -18,5 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "jest": "^29.7.0"
+  },
+  "devDependencies": {
+    "release-it": "^17.6.0"
   }
 }
