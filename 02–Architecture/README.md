@@ -1,6 +1,6 @@
 ## 02 – Architecture open source
 
-This Harry Potter Character Filter is an easy-to-use JavaScript package that interacts with the Harry Potter API to filter characters based on specific criteria. This package allows you to search for characters by gender, species, and wizard status, and returns a random character that matches the given criteria.
+This Harry Potter Character Filter is an easy-to-use JavaScript package that interacts with the Harry Potter API to filter characters based on specific criteria. This package allows you to search for characters by gender, species, house and wizard status, and returns a random character that matches the given criteria.
 
 ### Prerequisites
 
@@ -28,7 +28,7 @@ npm run test
 ### Features
 
 - Random Harry Potter Character retrieval: Uses the HP-API to fetch random Character.
-- Ability to filter characters by 3 different criteria : Gender ( male, female), Species ( human, werewolf, dog ...) or wizard ( true of false )
+- Ability to filter characters by 4 different criteria : Gender ( male, female), Species ( human, werewolf, dog ...), House () or wizard ( true of false )
 - Each filter is case insensitive ( everything's transformed to lowercase )
 
 ### Project Structure
