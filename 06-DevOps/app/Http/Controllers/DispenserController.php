@@ -46,7 +46,7 @@ class DispenserController extends Controller
             'Dispenser/Show',
             [
                 // 'dispenser' => Dispenser::find($id)
-                'dispenser' => $dispenser 
+                'dispenser' => $dispenser
             ]
         );
     }
