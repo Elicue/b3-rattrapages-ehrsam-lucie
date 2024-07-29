@@ -178,6 +178,7 @@ return an object with
 
 - [w3schools](https://www.w3schools.com/)
 - [StackOverflow](https://stackoverflow.com/)
+- Replay of course videos
 
 ## License
 
