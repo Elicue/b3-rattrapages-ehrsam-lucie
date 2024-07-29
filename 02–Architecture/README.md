@@ -1,19 +1,19 @@
-## 02 – Architecture open source
+# 02 – Architecture open source
 
 This Harry Potter Character Filter is an easy-to-use JavaScript package that interacts with the Harry Potter API to filter characters based on specific criteria. This package allows you to search for characters by gender, species, house and wizard status, and returns a random character that matches the given criteria.
 
-### Prerequisites
+## Prerequisites
 
 - [Node.js](https://nodejs.org/) (version 12 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-### Installation
+## Installation
 
 ```bash
 npm i select-potter-character
 ```
 
-### Local development
+## Local development
 
 ```bash
 npm install
@@ -23,13 +23,13 @@ npm install
 npm run test
 ```
 
-### Features
+## Features
 
 - Random Harry Potter Character retrieval: Uses the HP-API to fetch random Character.
 - Ability to filter characters by 4 different criteria : Gender ( male, female), Species ( human, werewolf, dog ...), House () or wizard ( true of false )
 - Each filter is case insensitive ( everything's transformed to lowercase )
 
-### Project Structure
+## Project Structure
 
 ```
 02–Architecture/
@@ -41,7 +41,7 @@ npm run test
 ├── LICENSE
 ```
 
-### Get a random character
+## Get a random character
 
 Retrieve a character randomly from the Harry Potter world
 
@@ -53,7 +53,7 @@ console.log(await getHarryPotterCharacter());
 
 return an object with all attributes of the randomly selected Harry Potter character
 
-### Get a character based on gender
+## Get a character based on gender
 
 Retrieve a character randomly from the Harry Potter world with the provided gender
 
@@ -72,7 +72,7 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
-### Get a character based on species
+## Get a character based on species
 
 Retrieve a character randomly from the Harry Potter world with the provided species
 
@@ -115,7 +115,7 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
-### Get a character based on house
+## Get a character based on house
 
 Retrieve a character randomly from the Harry Potter world from the provided house
 
@@ -136,7 +136,7 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
-### Get a character based on being a wizard
+## Get a character based on being a wizard
 
 Retrieve a character randomly from the Harry Potter world based on whether he/she is a wizard
 
@@ -152,7 +152,7 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
-### Get a character based on a combination of above criteria
+## Get a character based on a combination of above criteria
 
 Retrieve a character randomly from the Harry Potter world with a combination of any of the above filtering criteria
 
@@ -170,6 +170,6 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
-### License
+## License
 
 Distributed under the MIT License. See LICENSE for more information.
