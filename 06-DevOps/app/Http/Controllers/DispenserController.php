@@ -9,6 +9,8 @@ class DispenserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @param int $id
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -25,7 +27,7 @@ class DispenserController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Dispenser/Create');
     }
 
     /**
