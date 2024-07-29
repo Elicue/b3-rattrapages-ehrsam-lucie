@@ -29,20 +29,18 @@ npm run test
 
 - Random Harry Potter Character retrieval: Uses the HP-API to fetch random Character.
 - Ability to filter characters by 3 different criteria : Gender ( male, female), Species ( human, werewolf, dog ...) or wizard ( true of false )
+- Each filter is case insensitive ( everything's transformed to lowercase )
 
 ### Project Structure
 
 ```
 02–Architecture/
-│
-├── src/
-│   └── select-potter-character.js
-├── test/
-│   └── select-potter-character.test.js
+├── index.js
+├── index.test.js
+├── babel.config.cjs
 ├── package.json
 ├── README.md
 ├── LICENSE
-└── index.js
 ```
 
 ## Get a random character
