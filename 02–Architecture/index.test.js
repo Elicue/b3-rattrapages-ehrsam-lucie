@@ -1,4 +1,4 @@
-const getHarryPotterCharacter = require("../src/select-potter-character");
+import { getHarryPotterCharacter } from "./index.js";
 
 describe("getHarryPotterCharacter()", () => {
   it("should return a character if no search criteria is provided", async () => {
@@ -29,5 +29,20 @@ describe("getHarryPotterCharacter()", () => {
     expect(response.data).toHaveProperty("gender", "male");
     expect(response.data).toHaveProperty("species", "human");
     expect(response.data).toHaveProperty("wizard", true);
+  });
+
+  it("should return character corresponding to search criteria when possible", async () => {
+    const response = await getHarryPotterCharacter({
+      gender: "male",
+      species: "human",
+      wizard: true,
+      house: "Gryffindor",
+    });
+    expect(response.error).toBeFalsy();
+    expect(response.message).toBe("");
+    expect(response.data).toHaveProperty("gender", "male");
+    expect(response.data).toHaveProperty("species", "human");
+    expect(response.data).toHaveProperty("wizard", true);
+    expect(response.data).toHaveProperty("house", "Gryffindor");
   });
 });
