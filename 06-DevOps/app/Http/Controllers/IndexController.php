@@ -16,9 +16,9 @@ class IndexController extends Controller
         );
     }
 
-    public function show()
+    public function create()
     {
-        return inertia('Index/Show');
+        return inertia('Index/Create');
         // return "show";
     }
 }

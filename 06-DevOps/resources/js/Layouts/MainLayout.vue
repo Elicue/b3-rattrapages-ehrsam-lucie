@@ -1,8 +1,11 @@
 <template>
   <div>
-    Show 
+    
+    <Link href="/">Home Page</Link>&nbsp;
+    <Link href="/create">Create Page</Link>
+
+    <slot></slot>
   </div>
-  <Link href="/">Index Page</Link>
 </template>
 
 <script setup>
