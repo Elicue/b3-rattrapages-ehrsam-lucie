@@ -5,6 +5,7 @@
  * @param {*} filterCriteria is an object with key value pairs - key is the name of the attribute to filter on, value is the value on which to filter
  * criteria supported and optional:
  * - gender (male, female)
+ * - species (human, werewolf, dog, ...)
  * @returns an object with
  * - a data object containing a Harry Potter character if found, null otherwise
  * - a boolean field indicating if any error occured
@@ -31,6 +32,12 @@ async function getHarryPotterCharacter(filterCriteria) {
     if (filterCriteria?.gender) {
       character_list = character_list.filter(
         (c) => c.gender.toLowerCase() === filterCriteria.gender.toLowerCase()
+      );
+    }
+
+    if (filterCriteria?.species) {
+      character_list = character_list.filter(
+        (c) => c.species.toLowerCase() === filterCriteria.species.toLowerCase()
       );
     }
 
