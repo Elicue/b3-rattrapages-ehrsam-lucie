@@ -170,6 +170,10 @@ return an object with
 - a message to help understand the response in case an error occurred or not character matching provided criteria was found
 - a data key containing the randomly selected character if any
 
+### Explicative Video
+
+- [Video](https://youtu.be/0pPG-wqDvrU)
+
 ## License
 
 Distributed under the MIT License. See LICENSE for more information.
