@@ -174,6 +174,11 @@ return an object with
 
 - [Video](https://youtu.be/0pPG-wqDvrU)
 
+### Helpers
+
+- [w3schools](https://www.w3schools.com/)
+- [StackOverflow](https://stackoverflow.com/)
+
 ## License
 
 Distributed under the MIT License. See LICENSE for more information.
