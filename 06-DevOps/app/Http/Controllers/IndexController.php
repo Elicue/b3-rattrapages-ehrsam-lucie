@@ -11,7 +11,7 @@ class IndexController extends Controller
         return inertia(
             'Index/Index',
             [
-                'message' => 'caca'
+                'message' => 'test'
             ]
         );
     }
