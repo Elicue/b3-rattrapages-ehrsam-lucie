@@ -7,7 +7,6 @@ This Harry Potter Character Filter is an easy-to-use JavaScript package that int
 - [Node.js](https://nodejs.org/) (version 12 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-
 ### Installation
 
 Clone the repository and install dependencies with npm
@@ -15,7 +14,7 @@ Clone the repository and install dependencies with npm
 ```bash
 npm i select-potter-character
 ```
-    
+
 ### Features
 
 - Random Harry Potter Character retrieval: Uses the HP-API to fetch random Character.
@@ -32,6 +31,7 @@ npm i select-potter-character
 │   └── select-potter-character.test.js
 ├── package.json
 ├── README.md
+├── LICENSE
 └── index.js
 ```
 
