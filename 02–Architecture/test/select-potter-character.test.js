@@ -17,4 +17,17 @@ describe("getHarryPotterCharacter()", () => {
     expect(response.message).toBe("No character matches your search criteria");
     expect(response.data).toBeNull;
   });
+
+  it("should return character corresponding to search criteria when possible", async () => {
+    const response = await getHarryPotterCharacter({
+      gender: "male",
+      species: "human",
+      wizard: true,
+    });
+    expect(response.error).toBeFalsy();
+    expect(response.message).toBe("");
+    expect(response.data).toHaveProperty("gender", "male");
+    expect(response.data).toHaveProperty("species", "human");
+    expect(response.data).toHaveProperty("wizard", true);
+  });
 });

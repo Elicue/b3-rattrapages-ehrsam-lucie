@@ -41,6 +41,12 @@ async function getHarryPotterCharacter(filterCriteria) {
       );
     }
 
+    if (filterCriteria?.wizard) {
+      character_list = character_list.filter(
+        (c) => c.wizard === filterCriteria.wizard
+      );
+    }
+
     if (character_list.length === 0)
       return {
         data: null,
