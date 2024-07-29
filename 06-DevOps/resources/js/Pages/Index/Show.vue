@@ -1,15 +1,10 @@
 <template>
   <div>
-    Index 
+    Show 
   </div>
-  <Link href="/show">Show Page</Link>
-  <p>{{ message }}</p>
+  <Link href="/">Index Page</Link>
 </template>
 
 <script setup>
   import { Link } from '@inertiajs/inertia-vue3';
-
-  defineProps({
-    message: String
-  });
 </script>
