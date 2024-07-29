@@ -50,7 +50,7 @@ Retrieve a character randomly from the Harry Potter world
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter();
+console.log(await getHarryPotterCharacter());
 ```
 
 return an object with all attributes of the randomly selected Harry Potter character
@@ -65,7 +65,7 @@ Retrieve a character randomly from the Harry Potter world with the provided gend
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter({ gender: "male" });
+console.log(await getHarryPotterCharacter({ gender: "male" }));
 ```
 
 return an object with
@@ -108,7 +108,7 @@ Retrieve a character randomly from the Harry Potter world with the provided spec
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter({ species: "werewolf" });
+console.log(await getHarryPotterCharacter({ species: "werewolf" }));
 ```
 
 return an object with
@@ -129,7 +129,7 @@ Retrieve a character randomly from the Harry Potter world from the provided hous
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter({ house: "Gryffindor" });
+console.log(await getHarryPotterCharacter({ house: "Gryffindor" }));
 ```
 
 return an object with
@@ -145,7 +145,7 @@ Retrieve a character randomly from the Harry Potter world based on whether he/sh
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter({ wizard: true });
+console.log(await getHarryPotterCharacter({ wizard: true }));
 ```
 
 return an object with
@@ -161,10 +161,9 @@ Retrieve a character randomly from the Harry Potter world with a combination of 
 ```js
 import { getHarryPotterCharacter } from "select-potter-character";
 
-const response = await getHarryPotterCharacter({
-  gender: "male",
-  species: "human",
-});
+console.log(
+  await getHarryPotterCharacter({ gender: "male", species: "human" })
+);
 ```
 
 return an object with
