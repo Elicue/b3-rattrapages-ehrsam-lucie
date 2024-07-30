@@ -1,18 +1,21 @@
 <template>
-  <form>
+  <form @submit.prevent="create">
     <div>
       <div>
         <label>name</label>
-        <input type="text" />
+        <input v-model="form.name" type="text" placeholder="Dispenser name"/>
+        <div v-if="form.errors.name">
+          {{ form.errors.name }}
+        </div>
       </div>
       <div>
         <label>location</label>
-        <input type="text" />
+        <input v-model="form.location" type="text" placeholder="Dispenser location"/>
       </div>
       <div>
-        <label for="status-select">status</label>
-        <select name="status" id="status-select">
-          <option value="">--Please choose an option--</option>
+        <label for="status-select">status : {{ selected }}</label>
+        <select name="status" v-model="form.status" id="status-select">
+          <option disabled value="">--Please choose an option--</option>
           <option value="active">active</option>
           <option value="inactive">inactive</option>
           <option value="pending">pending</option>
@@ -36,12 +39,14 @@ div {
 </style>
 
 <script setup>
-  import {reactive} from 'vue'
+  import {useForm} from '@inertiajs/inertia-vue3'
 
-  const form = reactive({
-    name: '',
+  const form = useForm({
+    name: '' ,
     location: '',
-    status: ''
+    status: '',
   })
-  
+
+  const create = () => form.post('/dispenser')
+
 </script>

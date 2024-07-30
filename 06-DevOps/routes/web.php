@@ -9,5 +9,5 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/create', [IndexController::class, 'create']);
 
 Route::resource('/dispenser', DispenserController::class)->only([
-  'index', 'show', 'create',
+  'index', 'show', 'create', 'store'
 ]);
