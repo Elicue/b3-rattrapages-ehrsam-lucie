@@ -38,7 +38,7 @@ npm run test
 ├── babel.config.cjs
 ├── package.json
 ├── README.md
-├── LICENSE
+└── LICENSE
 ```
 
 ## Get a random character
