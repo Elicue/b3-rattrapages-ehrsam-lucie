@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    <main class="w-full flex flex-row lg:h-[92vh] h-screen">
+    <main class="w-full flex flex-row h-screen pt-[7vh]">
       <img class="w-5/12 object-cover lg:flex hidden" src="https://www.picard.fr/on/demandware.static/-/Sites-picard-Library/default/dw6c598d3f/loginSignup/login/login-bg-desktop.jpg" alt="illu">
       <section  class="gap-4 items-center pt-8 lg:w-7/12 w-full mx-auto bg-white pt-20">
         <div class="w-3/4 mx-auto gap-4 flex flex-col">
