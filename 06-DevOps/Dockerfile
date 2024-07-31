@@ -1,40 +1,43 @@
-# FROM php
+FROM webdevops/php-nginx:8.3-alpine
 
-# # Install necessary dependencies
-# RUN apt-get update && apt-get install -y \
-#   git \
-#   curl \
-#   locales \
-#   zip \
-#   unzip \
-#   npm \
-#   nodejs \
-#   && docker-php-ext-configure gd --with-freetype --with-jpeg \
-#   && docker-php-ext-install pdo pdo_mysql gd
+# Installation dans votre Image du minimum pour que Docker fonctionne
+RUN apk add oniguruma-dev libxml2-dev
+RUN docker-php-ext-install \
+  bcmath \
+  ctype \
+  fileinfo \
+  mbstring \
+  pdo_mysql \
+  xml
 
-# # Install Composer
-# COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Installation dans votre image de Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# # Set the working directory
-# WORKDIR /var/www
+# Installation dans votre image de NodeJS
+RUN apk add nodejs npm
 
-# # Copy the Composer file and install PHP dependencies
-# COPY composer.json composer.lock ./
-# RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
+ENV WEB_DOCUMENT_ROOT /app/public
+ENV APP_ENV production
+WORKDIR /app
 
-# # Copy the package.json file and install Node.js dependencies
-# COPY package.json package-lock.json ./
-# RUN npm install
+# On copie le fichier .env.example pour le renommer en .env
+# Vous pouvez modifier le .env.example pour indiquer la configuration de votre site pour la production
+RUN cp -n .env
 
-# # Copy the rest of the application code
-# COPY . .
+# Installation et configuration de votre site pour la production
+# https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+# Generate security key
+RUN php artisan key:generate
+# Optimizing Configuration loading
+RUN php artisan config:cache
+# Optimizing Route loading
+RUN php artisan route:cache
+# Optimizing View loading
+RUN php artisan view:cache
 
-# # Compile the front-end assets
-# RUN npm run build
+# Compilation des assets de Breeze (ou de votre site)
+RUN npm install
+RUN npm run build
 
-# # Change the permissions of the storage and cache directory
-# RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-
-# # Expose port 9000 and start PHP-FPM
-# EXPOSE 9000
-# CMD ["php-fpm"]
+RUN chown -R application:application .

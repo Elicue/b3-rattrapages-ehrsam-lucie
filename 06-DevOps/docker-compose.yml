@@ -1,29 +1,24 @@
-# version: "3.9"
-# services:
-#     mysql:
-#         image: mysql:latest
-#         environment:
-#             MYSQL_DATABASE: Picard
-#             MYSQL_ROOT_PASSWORD: root
-#         volumes:
-#             - dbdata:/var/lib/mysql
-#         networks:
-#             - app-network
+version: '3' 
+services:
+  laravel-docker:
+    container_name: mine-docker 
+    build: .  
+    volumes:
+    - .:/var/www/html
+    ports:
+    - 9005:80
 
-#     adminer:
-#         image: adminer
-#         restart: always
-#         ports:
-#             - 8080:8080
-    
-#     app:
-#         build:
-#             context: .
-#             dockerfile: Dockerfile
-#         volumes:
-#             - .:/var/www
-#         networks:
-#             - app-network
+  mysql:
+    image: mysql:latest 
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Picard 
+    ports:
+    - 3305:3306
 
-#     volumes:
-#         dbdata:
+  phpmyadmin:
+    image: phpmyadmin:latest 
+    ports:
+      - 9015:80 
+    environment:
+      - PMA_ARBITRARY=1

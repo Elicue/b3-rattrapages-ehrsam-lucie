@@ -1,8 +1,8 @@
 <template>
   <MainLayout>
-    <main class="w-full flex flex-row h-screen pt-[7vh]">
+    <main class="w-full flex flex-row pt-[7vh]">
       <img class="w-5/12 object-cover lg:flex hidden" src="https://www.picard.fr/on/demandware.static/-/Sites-picard-Library/default/dw6c598d3f/loginSignup/login/login-bg-desktop.jpg" alt="illu">
-      <section  class="gap-4 items-center pt-8 lg:w-7/12 w-full mx-auto bg-white pt-20">
+      <section  class="gap-4 items-center lg:w-7/12 w-full mx-auto bg-white pt-32">
         <div class="w-3/4 mx-auto gap-4 flex flex-col">
           <h1 class="text-[#0311a5] font-semibold text-3xl">Add a Dispenser</h1>
           <p>Enter a name, location and status to add a dispenser.</p>

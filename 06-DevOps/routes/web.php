@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/create', [IndexController::class, 'create']);
+// Route::get('/', IndexController::class)->only('index');
+// Route::redirect('/', '/dispenser');
 
 Route::resource('/dispenser', DispenserController::class)->only([
   'index', 'show', 'create', 'store'
