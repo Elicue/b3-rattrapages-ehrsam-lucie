@@ -1,37 +1,84 @@
-version: "3.9"
+version: "3.8"
+
 services:
-    mysql:
-        image: mysql:latest
-        environment:
-            MYSQL_DATABASE: Picard
-            MYSQL_ROOT_PASSWORD: root
-        volumes:
-            - dbdata:/var/lib/mysql
-
-    # adminer:
-    #     image: adminer
-    #     restart: always
-    #     ports:
-    #         - 8080:8080
-
+    # Laravel Application
     app:
         build:
             context: .
             dockerfile: Dockerfile
         volumes:
-            - .:/var/www
-        depends_on:
-            - mysql
-            - webserver
-
-    webserver:
-        image: nginx:alpine
-        tty: true
+            - .:/var/www/html
         ports:
             - "8000:80"
+        environment:
+            - APACHE_DOCUMENT_ROOT=/var/www/html/public
+        depends_on:
+            - mysql
+
+    adminer:
+      image: adminer 
+      restart: always 
+      ports:
+        - 8080:8080
+
+    # MySQL Database
+    mysql:
+        image: mysql
+        # ports:
+        #     - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: Picard
         volumes:
-            - ./:/var/www
-            - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - dbdata:/var/lib/mysql
 
 volumes:
     dbdata:
+# version: "3.9"
+# services:
+#     php-fpm:
+#         image: php:8.2-fpm
+#         container_name: php-fpm
+#         volumes:
+#             - .:/var/www
+
+#     mysql:
+#         image: mysql:latest
+#         container_name: mysql
+#         environment:
+#             MYSQL_DATABASE: Picard
+#             MYSQL_ROOT_PASSWORD: root
+#         volumes:
+#             - dbdata:/var/lib/mysql
+
+#     # adminer:
+#     #     image: adminer
+#     #     restart: always
+#     #     ports:
+#     #         - 8080:8080
+
+#     app:
+#         build:
+#             context: .
+#             dockerfile: Dockerfile
+#         env_file:
+#             - .env
+#         volumes:
+#             - .:/var/www
+#         depends_on:
+#             - mysql
+#             - webserver
+
+#     webserver:
+#         image: nginx
+#         tty: true
+#         ports:
+#             - "8000:80"
+#         volumes:
+#             - ./:/var/www
+#             - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+#         depends_on:
+#             - php-fpm
+
+# volumes:
+#     dbdata:
