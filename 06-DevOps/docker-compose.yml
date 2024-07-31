@@ -3,17 +3,17 @@ version: "3.8"
 services:
     # Laravel Application
     app:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        volumes:
-            - .:/var/www/html
-        ports:
-            - "8000:80"
-        environment:
-            - APACHE_DOCUMENT_ROOT=/var/www/html/public
-        depends_on:
-            - mysql
+      build:
+          context: .
+          dockerfile: Dockerfile
+      volumes:
+          - .:/var/www/html
+      ports:
+          - "8000:80"
+      environment:
+          - APACHE_DOCUMENT_ROOT=/var/www/html/public
+      depends_on:
+          - mysql
 
     adminer:
       image: adminer 
