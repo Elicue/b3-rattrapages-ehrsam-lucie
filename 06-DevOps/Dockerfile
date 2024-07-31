@@ -1,43 +1,45 @@
-FROM webdevops/php-nginx:8.3-alpine
+FROM php:8.2-fpm
 
-# Installation dans votre Image du minimum pour que Docker fonctionne
-RUN apk add oniguruma-dev libxml2-dev
-RUN docker-php-ext-install \
-  bcmath \
-  ctype \
-  fileinfo \
-  mbstring \
-  pdo_mysql \
-  xml
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y \
+  libjpeg-dev \
+  libpng-dev\
+  libzip-dev \
+  libfreetype6-dev \
+  git \
+  curl \
+  locales \
+  zip \
+  unzip \
+  npm \
+  nodejs 
 
-# Installation dans votre image de Composer
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg 
+RUN docker-php-ext-install pdo pdo_mysql gd
+
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Installation dans votre image de NodeJS
-RUN apk add nodejs npm
+# Set the working directory
+WORKDIR /var/www
 
-ENV WEB_DOCUMENT_ROOT /app/public
-ENV APP_ENV production
-WORKDIR /app
+# Copy the Composer file and install PHP dependencies
+COPY composer.json composer.lock ./
+RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
 
-# On copie le fichier .env.example pour le renommer en .env
-# Vous pouvez modifier le .env.example pour indiquer la configuration de votre site pour la production
-RUN cp -n .env
-
-# Installation et configuration de votre site pour la production
-# https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-# Generate security key
-RUN php artisan key:generate
-# Optimizing Configuration loading
-RUN php artisan config:cache
-# Optimizing Route loading
-RUN php artisan route:cache
-# Optimizing View loading
-RUN php artisan view:cache
-
-# Compilation des assets de Breeze (ou de votre site)
+# Copy the package.json file and install Node.js dependencies
+COPY package.json package-lock.json ./
 RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Compile the front-end assets
 RUN npm run build
 
-RUN chown -R application:application .
+# Change the permissions of the storage and cache directory
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+# Expose port 9000 and start PHP-FPM
+EXPOSE 9000
+CMD ["php-fpm"]

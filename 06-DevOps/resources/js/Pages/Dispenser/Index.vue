@@ -3,7 +3,7 @@
   <div class="flex flex-row  mb-8 justify-between w-11/12 mx-auto pt-24 ">
     <h1 class="list-none text-4xl text-[#459bab] font-bold">All Dispensers</h1>
   </div>
-    <section  class="grid lg:grid-cols-2 gap-4 items-center w-11/12 mx-auto">
+    <section class="grid lg:grid-cols-2 gap-4 items-center w-11/12 mx-auto pb-12">
       <div v-for="dispenser in sortedDispensers" :key="dispenser.id">
         <Link :href="`/dispenser/${dispenser.id}`">
           <DispenserInfos :dispenser="dispenser" />
