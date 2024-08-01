@@ -16,7 +16,7 @@ b3-rattrapages-ehrsam-lucie/
 │   ├── README.md
 │   └── LICENSE
 ├── 06–DevOps/
-│   ├── 
+│   ├── ...
 │   └── README.md
 ├── LICENSE
 └── README.md
