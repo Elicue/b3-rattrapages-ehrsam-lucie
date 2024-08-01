@@ -64,6 +64,15 @@ docker-compose down
 
 ```
 
+## Dockerhub
+
+If you want to pull the dockerhub image :
+
+```bash
+docker pull lucee0104/devops-docker:latest
+
+```
+
 ## Features
 
 -   Distributor List: Displays all installed Picard distributors in a list.
