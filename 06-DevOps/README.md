@@ -78,7 +78,7 @@ docker-compose down
 
 ## Explicative Video
 
--   [Video]()
+-   [Video](https://youtu.be/4X4QvxMyWHE)
 
 ## Helpers
 
