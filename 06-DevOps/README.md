@@ -36,7 +36,7 @@ cd ..
 Starting Containers with Docker Compose :
 
 ```bash
-docker-compose up --build
+docker-compose up -d
 ```
 
 Starting Containers with Docker Compose :
