@@ -6,8 +6,6 @@
 /storage/*.key
 /vendor
 .env
-docker.env
-.env.local
 .env.backup
 .env.production
 .phpactor.json
@@ -20,3 +18,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/dbdata
