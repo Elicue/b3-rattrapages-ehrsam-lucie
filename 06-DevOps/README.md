@@ -33,6 +33,12 @@ cp .env.example .env
 cd ..
 ```
 
+Generate environment key
+
+```bash
+php artisan key:generate
+```
+
 Starting Containers with Docker Compose :
 
 ```bash
