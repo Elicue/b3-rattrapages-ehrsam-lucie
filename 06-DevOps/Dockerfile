@@ -1,9 +1,6 @@
 # Use an official PHP image with Apache as the base image.
 FROM php:8.2-apache
 
-# Set environment variables.
-ENV ACCEPT_EULA=Y
-
 # Install system dependencies.
 RUN apt-get update && apt-get install -y \
   libpng-dev \
@@ -32,7 +29,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 # Install Composer globally.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Create a directory for your Laravel application.
+# Create a directory for the Laravel application.
 WORKDIR /var/www/html
 
 # Copy the Laravel application files into the container.
@@ -40,13 +37,11 @@ COPY . .
 
 # Install Laravel dependencies using Composer.
 RUN composer install --no-interaction --optimize-autoloader
-# RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
 
 # Set permissions for Laravel.
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Copy the package.json file and install Node.js dependencies
-# COPY package.json package-lock.json ./
+# Install Node.js dependencies
 RUN npm install
 
 # Compile the front-end assets
