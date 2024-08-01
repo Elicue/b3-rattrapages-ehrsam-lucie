@@ -1,66 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 06 – DevOps : Docker
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The project consists of creating a web application using PHP (here Laravel) and a front-end framework (here VueJS) that allows users to list all distributors installed by Picard and add new distributors through a form. The application is Dockerized, includes a database, and supports easy initial data import via a volume.
+I have used a Dockerfile and Docker Compose to orchestrate the application and its database.
 
-## About Laravel
+For this project, using Docker Compose is simpler than using just a Dockerfile because it allows for easy management of multiple containers, like the application and database, in a single configuration file. Docker Compose simplifies networking between containers, handles environment variables, and makes volume management straightforward.
+Additionally, it provides a one-command setup (`docker-compose up`) to launch the entire stack, making the process more efficient and consistent across different environments.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The following documentation includes instructions for building and running the containers.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Prerequisites
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for Windows & macOS)
+-   [Docker Engine](https://docs.docker.com/engine/) (for Linux)
+-   [Node.js](https://nodejs.org/)
+-   [npm](https://www.npmjs.com/)
+-   [Composer]()
 
-## Learning Laravel
+## Installation & Local development
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clone the Git Repository :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+git clone <b3-rattrapages-ehrsam-lucie>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+cd <b3-rattrapages-ehrsam-lucie/06-DevOps>
+```
 
-## Laravel Sponsors
+Copy the example environment file from the .env.example file and adjust the environment variables if necessary.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+cp .env.example .env
+cd ..
+```
 
-### Premium Partners
+Starting Containers with Docker Compose :
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+docker-compose up --build
+```
 
-## Contributing
+Starting Containers with Docker Compose :
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+docker-compose exec app composer install
 
-## Code of Conduct
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Install PHP dependencies :
 
-## Security Vulnerabilities
+```bash
+docker-compose exec app php artisan migrate    # For Laravel
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
 
-## License
+Access the application :
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Open your web browser and navigate to http://localhost:8001 ( the port is specified in the docker-compose.yml file).
+
+If you want to stop the containers :
+
+```bash
+docker-compose down
+
+```
+
+## Features
+
+-   Distributor List: Displays all installed Picard distributors in a list.
+-   Add Form: Allows adding new distributors via a simple form.
+-   Database: Stores distributor information and allows their management.
+
+## Explicative Video
+
+-   [Video]()
+
+## Helpers
+
+-   [w3schools](https://www.w3schools.com/)
+-   [StackOverflow](https://stackoverflow.com/)
+-   [Docker Docs](https://docs.docker.com/guides)
+-   [Laravel Docs](https://laravel.com/docs/)
+-   [Vue3 Docs](https://vuejs.org/guide/introduction.html)
+-   Replay of course videos
