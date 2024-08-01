@@ -1,6 +1,5 @@
 node_modules
 vendor
-dbdata
 Dockerfile
 .env
 .git

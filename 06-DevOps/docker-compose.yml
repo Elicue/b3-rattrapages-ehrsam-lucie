@@ -26,8 +26,6 @@ services:
         build:
             context: .  # Sets the build context to the current directory
             dockerfile: Dockerfile  # Uses the specified Dockerfile to build the Laravel image
-        volumes:
-            - .:/var/www/html  # Mounts the current directory into the container, synchronizing application files
         ports:
             - "8001:80"  # Maps port 80 in the container (web server port) to port 8001 on the host, allowing access to the Laravel app via http://localhost:8001
         env_file:
