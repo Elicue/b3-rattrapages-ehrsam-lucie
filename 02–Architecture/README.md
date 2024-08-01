@@ -13,6 +13,8 @@ This Harry Potter Character Filter is an easy-to-use JavaScript package that int
 npm i select-potter-character
 ```
 
+- [NPM Link]([https://www.w3schools.com/](https://www.npmjs.com/package/select-potter-character))
+
 ## Local development
 
 ```bash
