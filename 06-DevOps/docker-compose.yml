@@ -30,8 +30,9 @@ services:
             - .:/var/www/html  # Mounts the current directory into the container, synchronizing application files
         ports:
             - "8001:80"  # Maps port 80 in the container (web server port) to port 8001 on the host, allowing access to the Laravel app via http://localhost:8001
-        environment:
-            - APACHE_DOCUMENT_ROOT=/var/www/html/public  # Sets the Apache document root to the public directory of the Laravel app
+        env_file:
+            - ./.env
+
         depends_on:
             - mysql  # Ensures that the MySQL container is started before the Laravel container, so the database is ready
 
